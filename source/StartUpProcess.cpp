@@ -35,7 +35,7 @@ StartUpProcess::StartUpProcess()
 	//! Load default font for the next text outputs
 	Theme::LoadFont("");
 
-	background = new GuiImage(screenwidth, screenheight, (GXColor){0, 0, 0, 255});
+	background = new GuiImage(screenwidth, screenheight, (GXColor){255, 255, 255, 255});
 
 	GXImageData = Resources::GetImageData("gxlogo.png");
 	GXImage = new GuiImage(GXImageData);
