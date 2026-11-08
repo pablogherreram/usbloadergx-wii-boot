@@ -35,12 +35,23 @@ StartUpProcess::StartUpProcess()
 	//! Load default font for the next text outputs
 	Theme::LoadFont("");
 
-	background = new GuiImage(screenwidth, screenheight, (GXColor){255, 255, 255, 255});
 
+	
+	BackgroundImageData = Resources::GetImageData("wbackground.png");
+	background = new GuiImage(BackgroundImageData);
+	background->SetAlignment(ALIGN_CENTER, ALIGN_MIDDLE);
+	background->SetPosition(screenwidth / 2, screenheight / 2);
+
+
+	
 	GXImageData = Resources::GetImageData("gxlogo.png");
 	GXImage = new GuiImage(GXImageData);
 	GXImage->SetAlignment(ALIGN_CENTER, ALIGN_MIDDLE);
-	GXImage->SetPosition(screenwidth / 2, screenheight / 2 - 50);
+
+	
+	GXImage->SetPosition(screenwidth / 2, screenheight / 2);
+
+	
 
 	titleTxt = new GuiText("Loading...", 24, (GXColor){255, 255, 255, 255});
 	titleTxt->SetAlignment(ALIGN_CENTER, ALIGN_MIDDLE);
@@ -89,8 +100,11 @@ StartUpProcess::StartUpProcess()
 StartUpProcess::~StartUpProcess()
 {
 	delete background;
-	delete GXImageData;
+	delete BackgroundImageData;
 	delete GXImage;
+	delete GXImageData;
+
+	
 	delete titleTxt;
 	delete messageTxt;
 	delete versionTxt;
