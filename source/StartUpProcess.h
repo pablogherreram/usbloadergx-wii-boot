@@ -24,6 +24,8 @@ private:
 
 	bool drawCancel;
 
+	GuiImageData *BackgroundImageData;
+
 	GuiImageData *GXImageData;
 	GuiImage *background;
 	GuiImage *GXImage;
